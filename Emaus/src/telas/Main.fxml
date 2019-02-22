@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="662.0" prefWidth="1366.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controles">
+   <children>
+      <SVGPath content="M119.7 362.67 119.7 33.8 88.85 10.39 15.84 10.39 15.84 381.91 87.04 381.91 119.7 362.67z" fill="#cfd8dd" layoutX="-16.0" layoutY="80.0" styleClass="backMenu" />
+      <TabPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="664.0" prefWidth="1359.0" side="LEFT" styleClass="tabMenu" tabClosingPolicy="UNAVAILABLE" tabMinHeight="100.0">
+        <tabs>
+            <Tab disable="true" styleClass="space" />
+          <Tab styleClass="menuButton">
+               <graphic>
+                  <Label alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="100.0" styleClass="iconMenu" stylesheets="@../../bin/application/application.css" text="Nova Doação" translateX="-20.0" translateY="-2.0">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../images/NovaDoaþÒo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </graphic>
+               <content>
+                  <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="664.0" prefWidth="1338.0">
+                     <children>
+                        <AnchorPane layoutX="107.0" layoutY="57.0" prefHeight="576.0" prefWidth="1039.0" styleClass="bluePane">
+                           <children>
+                              <Button fx:id="upload" alignment="CENTER" contentDisplay="CENTER" layoutX="183.0" layoutY="27.0" maxHeight="25.0" minHeight="25.0" mnemonicParsing="false" onMouseClicked="#Feedback" prefHeight="25.0" prefWidth="90.0" styleClass="butaoImprimir" stylesheets="@../application/application.css" text="Importar" textOverrun="CENTER_ELLIPSIS">
+                                 <padding>
+                                    <Insets bottom="1.0" />
+                                 </padding>
+                              </Button>
+                              <AnchorPane layoutX="203.0" layoutY="57.0" prefHeight="500.0" prefWidth="717.0" styleClass="anchorForm" translateX="-20.0">
+                                 <children>
+                                    <GridPane fx:id="gridInput" layoutX="76.0" layoutY="47.0" prefHeight="416.0" prefWidth="573.0">
+                                       <children>
+                                          <DatePicker fx:id="dataColeta" promptText="Data de Coleta" styleClass="inputForm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                                          <TextField fx:id="telefone" maxWidth="150.0" prefWidth="298.0" promptText="Telefone" styleClass="inputForm" GridPane.rowIndex="4" />
+                                          <TextField fx:id="celular" maxWidth="174.0" promptText="Celular" styleClass="inputForm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                                          <TextField fx:id="referencia" maxWidth="174.0" promptText="Ponto de Referência" styleClass="inputForm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                                          <TextField fx:id="complemento" maxWidth="174.0" promptText="Complemento" styleClass="inputForm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                                          <SplitMenuButton maxWidth="200.0" mnemonicParsing="false" text="Tipo de doação">
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" text="Valor" />
+                                              <MenuItem mnemonicParsing="false" text="Objeto" />
+                                            </items>
+                                          </SplitMenuButton>
+                                          <SplitMenuButton fx:id="tipoDoacao" maxWidth="200.0" mnemonicParsing="false" onMouseClicked="#Feedback" text="Tipo de Doação">
+                                             <items>
+                                                <MenuItem fx:id="tipoValor" mnemonicParsing="false" onAction="#Feedback" text="Valor" />
+                                                <MenuItem fx:id="tipoObjeto" mnemonicParsing="false" onAction="#Feedback" text="Objeto" />
+                                             </items>
+                                          </SplitMenuButton>
+                                          <SplitMenuButton fx:id="tipoPessoa" maxWidth="200.0" mnemonicParsing="false" onMouseClicked="#Feedback" GridPane.rowIndex="2">
+                                             <items>
+                                                <MenuItem fx:id="tipoFisica" mnemonicParsing="false" onAction="#Feedback" text="Física" />
+                                                <MenuItem fx:id="tipoJuridica" mnemonicParsing="false" onAction="#Feedback" text="Jurídica" />
+                                             </items>
+                                          </SplitMenuButton>
+                                          <Pane fx:id="inputConteudo" prefHeight="241.0" prefWidth="286.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="valor" layoutY="9.0" maxWidth="150.0" prefHeight="25.0" prefWidth="298.0" promptText="Valor" styleClass="inputForm" />
+                                             </children>
+                                          </Pane>
+                                          <VBox fx:id="autoBairro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="286.0" GridPane.rowIndex="5">
+                                             <children>
+                                                <TextField fx:id="bairro" prefHeight="23.0" prefWidth="286.0" promptText="Bairro" styleClass="inputForm" />
+                                             </children>
+                                          </VBox>
+                                          <VBox fx:id="autoNome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="575.0" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField fx:id="nome" maxWidth="700.0" prefHeight="25.0" prefWidth="350.0" promptText="Nome" styleClass="inputForm" />
+                                             </children>
+                                          </VBox>
+                                          <VBox fx:id="autoRua" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="23.0" prefWidth="234.0" GridPane.rowIndex="6">
+                                             <children>
+                                                <TextField fx:id="rua" promptText="Avenida" styleClass="inputForm" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="348.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="348.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Group layoutX="548.0" layoutY="457.0" />
+                                    <Group layoutX="485.0" layoutY="437.0">
+                                       <children>
+                                          <SVGPath id="btnEditar" fx:id="svgDoar" content="M 38.06,10 15,26.68 V 47 H 182 V 26.68 L 158.94,10 Z" fill="#00b8ce" layoutX="-12.0" layoutY="6.0" onMouseClicked="#Feedback" style="-fx-cursor: hand;" />
+                                          <Label fx:id="labelDoar" layoutX="41.0" layoutY="3.0" onMouseClicked="#Feedback" prefHeight="60.0" prefWidth="93.0" styleClass="labelSelecionar" stylesheets="@../application/application.css" text="Confirmar" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Roboto" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Group>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Group layoutX="105.0" layoutY="21.0">
+                           <children>
+                              <SVGPath content="m 255.98817,36.680893 v -9.849148 0 L 169.48153,4.2198275 H 2.61152 L 2.836938,36.680893 Z" layoutX="-1.0" styleClass="backTitle" />
+                              <Text fill="#170808" fontSmoothingType="LCD" layoutX="65.0" layoutY="36.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tituloPasta" text="Doação" />
+                           </children>
+                        </Group>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab fx:id="Historico" onSelectionChanged="#initialize" styleClass="menuButton">
+               <graphic>
+                  <Label alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="100.0" styleClass="iconMenu" text="Histórico" translateX="-22.0" translateY="-2.0">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../images/Historico.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </graphic>
+               <content>
+                  <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="664.0" prefWidth="1338.0">
+                     <children>
+                        <GridPane fx:id="meses" layoutX="1126.0" layoutY="90.0" prefHeight="534.0" prefWidth="155.0" translateX="-10.0" vgap="10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Group styleClass="btnMes">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Jan" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="1">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Fev" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="2">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Mar" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="3">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Abr" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="4">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Mai" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="5">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Jun" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="6">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Jul" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="7">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Ago" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="8">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Set" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="9">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Out" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="10">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Nov" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                              <Group styleClass="btnMes" GridPane.rowIndex="11">
+                                 <children>
+                                    <SVGPath content="M84.97 0 0 0 0 38 104 38 104 19.03 84.97 0z" fill="#d1cfd8" styleClass="btnMes" />
+                                    <Label layoutX="33.0" layoutY="5.0" styleClass="lblMes" text="Dez" translateX="12.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Group>
+                           </children>
+                        </GridPane>
+                        <Group layoutX="105.0" layoutY="21.0">
+                           <children>
+                              <SVGPath content="m 255.98817,36.680893 v -9.849148 0 L 169.48153,4.2198275 H 2.61152 L 2.836938,36.680893 Z" layoutX="-1.0" styleClass="backTitle" />
+                              <Text fill="#170808" fontSmoothingType="LCD" layoutX="50.0" layoutY="36.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tituloPasta" text="Histórico" />
+                           </children>
+                        </Group>
+                        <AnchorPane layoutX="107.0" layoutY="57.0" prefHeight="576.0" prefWidth="1039.0" styleClass="bluePane">
+                           <children>
+                              <Group layoutX="871.0" layoutY="15.0" translateX="-20.0">
+                                 <children>
+                                    <TextField fx:id="inputProcurar" layoutX="-2.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-radius: 10;" />
+                                    <Button fx:id="lupa" layoutX="112.0" mnemonicParsing="false" onMouseClicked="#pesquisar" prefHeight="0.0" prefWidth="36.0" style="-fx-background-radius: 10; -fx-background-color: rgb(0,0,0,0.001);" styleClass="btnBuscar">
+                                       <graphic>
+                                          <ImageView>
+                                             <image>
+                                                <Image url="@../images/Pesquisar.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
+                                 </children>
+                              </Group>
+                              <Group layoutX="37.0" layoutY="17.0" styleClass="butaoImprimir">
+                                 <children>
+                                    <Button fx:id="buttonImprimir" alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" minHeight="25.0" mnemonicParsing="false" onMouseClicked="#Feedback" prefHeight="25.0" prefWidth="90.0" styleClass="butaoImprimir" stylesheets="@../application/application.css" text="Imprimir" textOverrun="CENTER_ELLIPSIS" translateX="12.0">
+                                       <padding>
+                                          <Insets bottom="1.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </Group>
+                              <Group layoutX="131.0" layoutY="18.0" styleClass="butaoExcluir">
+                                 <children>
+                                    <Button fx:id="buttonExcluir" alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" maxHeight="25.0" minHeight="25.0" mnemonicParsing="false" onMouseClicked="#Feedback" prefHeight="25.0" prefWidth="90.0" styleClass="butaoExcluir" stylesheets="@../application/application.css" text="Excluir" textAlignment="CENTER" translateX="20.0">
+                                       <padding>
+                                          <Insets bottom="1.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </Group>
+                              <AnchorPane id="tabela" fx:id="tabela" layoutX="38.0" layoutY="66.0" prefHeight="487.0" prefWidth="983.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab styleClass="menuButton">
+               <graphic>
+                  <Label alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="100.0" style="-fx-padding: 10px;" styleClass="iconMenu" text="Configurações" translateX="-22.0" translateY="-2.0">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../images/Configuraþ§es.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </graphic>
+               <content>
+              <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="664.0" prefWidth="1338.0">
+                     <children>
+                        <AnchorPane layoutX="107.0" layoutY="57.0" prefHeight="576.0" prefWidth="1039.0" styleClass="bluePane">
+                           <children>
+                              <Accordion layoutX="150.0" layoutY="40.0" styleClass="expand">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <panes>
+                                    <TitledPane animated="false" contentDisplay="RIGHT" prefHeight="0.0" prefWidth="740.0" style="-fx-cursor: default;" styleClass="expandText" stylesheets="@../application/application.css" text="Compactar Arquivos">
+                                       <content>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anchorCalender">
+                                             <children>
+                                                <GridPane fx:id="mesesCompactar" layoutX="165.0" prefHeight="265.0" prefWidth="378.0" styleClass="gridCheck">
+                                                   <children>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="137.0" prefWidth="94.0" styleClass="checkColor" text="Jan" textAlignment="JUSTIFY" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="128.0" styleClass="checkColor" text="Fev" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="110.0" styleClass="checkColor" text="Mar" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="126.0" prefWidth="95.0" styleClass="checkColor" text="Abr" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="148.0" prefWidth="94.0" styleClass="checkColor" text="Mai" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="130.0" styleClass="checkColor" text="Jun" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="141.0" styleClass="checkColor" text="Jul" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="114.0" styleClass="checkColor" text="Ago" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="170.0" styleClass="checkColor" text="Set" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="144.0" styleClass="checkColor" text="Out" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="143.0" styleClass="checkColor" text="Nov" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="114.0" styleClass="checkColor" text="Dez" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                   </children>
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                </GridPane>
+                                                <Group layoutX="256.0" layoutY="255.0">
+                                                   <children>
+                                                      <Pane layoutX="-90.0" layoutY="10.0" prefHeight="36.0" prefWidth="376.0" style="-fx-background-color: white;" />
+                                                      <SVGPath id="btnSelecionar" fx:id="svgCompactar" content="M 38.06,10 15,26.68 V 47 H 182 V 26.68 L 158.94,10 Z" fill="#00b8ce" onMouseClicked="#Feedback" style="-fx-cursor: hand;" />
+                                                      <Label fx:id="labelCompactar" alignment="CENTER" layoutX="52.0" layoutY="9.0" onMouseClicked="#Feedback" prefHeight="35.0" prefWidth="93.0" styleClass="labelSelecionar" stylesheets="@../application/application.css" text="Confirmar" textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Roboto" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <graphic>
+                                          <Group styleClass="btnSelecionar" stylesheets="@../application/application.css" translateX="320.0" translateY="10.0">
+                                             <children>
+                                                <SVGPath id="btnSelecionar" content="M 38.06,10 15,26.68 V 47 H 182 V 26.68 L 158.94,10 Z" fill="#00b8ce" style="-fx-cursor: hand;" styleClass="btnSelecionar" />
+                                                <Label layoutX="54.0" layoutY="-2.0" prefHeight="60.0" prefWidth="93.0" styleClass="labelSelecionar" stylesheets="@../application/application.css" text="Selecionar" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="Roboto" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Group>
+                                       </graphic>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </TitledPane>
+                                    <TitledPane animated="false" contentDisplay="RIGHT" prefHeight="0.0" styleClass="expandText" stylesheets="@../../bin/application/application.css" text="Limpar Sistema">
+                                       <content>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anchorCalender">
+                                             <children>
+                                                <GridPane fx:id="mesesLimpar" layoutX="165.0" prefHeight="265.0" prefWidth="378.0" styleClass="gridCheck">
+                                                   <children>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="137.0" prefWidth="94.0" styleClass="checkColor" text="Jan" textAlignment="JUSTIFY" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="128.0" styleClass="checkColor" text="Fev" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="110.0" styleClass="checkColor" text="Mar" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="126.0" prefWidth="95.0" styleClass="checkColor" text="Abr" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="148.0" prefWidth="94.0" styleClass="checkColor" text="Mai" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="130.0" styleClass="checkColor" text="Jun" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="141.0" styleClass="checkColor" text="Jul" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="112.0" prefWidth="114.0" styleClass="checkColor" text="Ago" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="170.0" styleClass="checkColor" text="Set" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="144.0" styleClass="checkColor" text="Out" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="143.0" styleClass="checkColor" text="Nov" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                      <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="111.0" prefWidth="114.0" styleClass="checkColor" text="Dez" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                         <padding>
+                                                            <Insets right="16.0" />
+                                                         </padding>
+                                                      </CheckBox>
+                                                   </children>
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                </GridPane>
+                                                <Group layoutX="256.0" layoutY="255.0">
+                                                   <children>
+                                                      <Pane layoutX="-90.0" layoutY="10.0" prefHeight="36.0" prefWidth="376.0" style="-fx-background-color: white;" />
+                                                      <SVGPath id="btnSelecionar" fx:id="svgLimpar" content="M 38.06,10 15,26.68 V 47 H 182 V 26.68 L 158.94,10 Z" fill="#00b8ce" onMouseClicked="#Feedback" style="-fx-cursor: hand;" />
+                                                      <Label fx:id="labelLimpar" layoutX="53.0" layoutY="12.0" onMouseClicked="#Feedback" prefHeight="33.0" prefWidth="93.0" styleClass="labelSelecionar" stylesheets="@../application/application.css" text="Confirmar" textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Roboto" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                       <graphic>
+                                          <Group styleClass="btnSelecionar" stylesheets="@../application/application.css" translateX="364.0" translateY="10.0">
+                                             <children>
+                                                <SVGPath id="btnSelecionar" content="M 38.06,10 15,26.68 V 47 H 182 V 26.68 L 158.94,10 Z" fill="#00b8ce" style="-fx-cursor: hand;" />
+                                                <Label layoutX="53.0" layoutY="-2.0" prefHeight="60.0" prefWidth="93.0" styleClass="labelSelecionar" stylesheets="@../application/application.css" text="Selecionar" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="Roboto" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Group>
+                                       </graphic>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </TitledPane>
+                                 </panes>
+                              </Accordion>
+                           </children>
+                        </AnchorPane>
+                        <Group layoutX="105.0" layoutY="22.0">
+                           <children>
+                              <SVGPath content="m 255.98817,36.680893 v -9.849148 0 L 169.48153,4.2198275 H 2.61152 L 2.836938,36.680893 Z" layoutX="-1.0" layoutY="-1.0" styleClass="backTitle" />
+                              <Text fill="#170808" fontSmoothingType="LCD" layoutX="14.0" layoutY="35.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tituloPasta" text="Configurações" />
+                           </children>
+                        </Group>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab styleClass="menuButton">
+               <graphic>
+                  <Label alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="100.0" style="-fx-padding: 10px;" styleClass="iconMenu" text="Sobre" textAlignment="CENTER" translateX="-22.0" translateY="-2.0">
+                     <graphic>
+                        <ImageView translateY="-2.0">
+                           <image>
+                              <Image url="@../images/Sobre.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </graphic>
+               <content>
+                  <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="664.0" prefWidth="1338.0">
+                     <children>
+                        <AnchorPane layoutX="107.0" layoutY="57.0" prefHeight="576.0" prefWidth="1039.0" styleClass="bluePane">
+                           <children>
+                              <AnchorPane layoutX="46.0" layoutY="3.0" prefHeight="559.0" prefWidth="947.0">
+                                 <children>
+                                    <TabPane id="sobreTabs" fx:id="sobreTabs" layoutX="16.0" layoutY="26.0" prefHeight="524.0" prefWidth="918.0" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="180.0" tabMinWidth="180.0">
+                                      <tabs>
+                                        <Tab styleClass="space">
+                                             <content>
+                                                <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-text-fill: black;" styleClass="white" text="&#9;O Sistema Emaús de Atendimento(SEA) desde seu primórdio tem como função facilitar a vida do funcionário da organização, agilizando seus processos e melhorando funções básicas de uso, sendo um sistema off-line são aplicados os dados como uma planilha, sem necessidade de login. &#10;&#9;Melhorando tanto a experiência das atendentes da Organização quanto a dos doadores, já que facilitando também a doação por demorar menos tempo e demandar menos paciência, além de que se já houver cadastros anteriores, só sendo necessário os objetos.&#10;" wrapText="true">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </TextArea>
+                                             </content>
+                                          </Tab>
+                                        <Tab styleClass="space">
+                                             <content>
+                                                <Accordion>
+                                                  <panes>
+                                                    <TitledPane animated="false" text="Como faço para fazer uma nova doação/registro?">
+                                                      <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Clique em Nova Doação: nesta janela irá aparecer o formulário com todos os dados que devem/deveriam ser preenchidos para se fazer a doação. A maioria desses dados são feitos digitando o conteúdo mas alguns são feitos apenas com alguns cliques. Essas outras opções são feitas de forma selecionável." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                      </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                    </TitledPane>
+                                                      <TitledPane animated="false" text="Peguei dados preenchidos pelo formulário online, como faço para adicionar ele no sistema?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Na janela de Nova Doação, estará exposto um ícone/botão de Importar. Clicando no botão, irá aparecer uma janela do Windows, onde basta escolher o arquivo do formulário online que ele irá carregar todos os dados para o programa." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="Preenchi os dados que queria. E agora, para onde foram?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Todos os dados importados ou adicionados na janela de Nova Doação estarão presentes no Histórico, encontrado logo abaixo de Nova Doação no Menu. Lá os registros dos doadores estarão alocados de acordo com o mês de cada doação." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="Errei na informação de algum doador. Como faço para editar as informações?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Na aba de histórico, cada registro há um botão de Ver Detalhes. Clicando nele, uma aba se abrirá sendo possível a visualização do resto das informações do doador assim como a edição do mesmo." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="Preciso de informações sobre determinado doador em papel. Como faço para imprimir?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Em Histórico, basta selecionar um ou mais arquivos de doador e clicar no botão que fica em cima de Imprimir. Aqui, irá aparecer uma aba com as informações da impressão, então basta imprimir." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="Algum doador cancelou a doação ou aconteceu algum erro ou imprevisto. Como faço para excluir o registro?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Assim como o Imprimir, só que após selecionar os registros, clicar no botão ao lado de Excluir e Confirmar." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="São muitas doações registradas e procuro um determinado registro, como faço isso rapidamente?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Na o Histórico haverá uma parte de pesquisa, onde basta buscar o nome do doador para achar suas informações." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="Preciso fazer uma limpa no sistema, tenho que selecionar todos os arquivos separadamente e excluir?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Não. Na janela de Configurações no Menu, há uma parte com Limpeza de Sistema. Quando clicado nele, irá aparecer um calendário onde basta selecionar os meses que você quer fazer determinada limpeza e confirmar." wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="Mas eu queria limpar o sistema sem perder os dados, têm como?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="Claro. Logo abaixo de Limpar Sistema, há a opção de Compactar arquivos. Segue o mesmo método de limpeza, selecionando os meses que você deseja salvar, o sistema irá reproduzir um arquivo com todos os dados de determinado mês.&#10;&#10;Dica: No fim de cada ano, sempre compacte o sistema para não perder seus dados do ano que está&#10;" wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane animated="false" text="To com uma dúvida mas não está respondida aqui, como faço pra saber mais?">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea editable="false" prefHeight="200.0" prefWidth="917.0" style="-fx-text-fill: black;" text="timeprisma@gmail.com" wrapText="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                  </panes>
+                                                </Accordion>
+                                             </content></Tab>
+                                          <Tab styleClass="space">
+                                             <content>
+                                                <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-text-fill: black;" text="Prisma - formada por 5 alunos de Sistemas e Mídias Digitais da Universidade Federal do Ceará com fins acadêmicos, o time se dispôs a ajudar a ONG, criando assim o SEA.&#10;Membros: &#10;Josemilly Sales - Líder&#10;Thalys Darwin - Conteudista&#10;Felipe Sampaio - Design&#10;Erivan Pereira - Programador&#10;Iago Gomez - Controlador de Testes&#10;Tendo em mente que isso são apenas funções básicas, pois toda a equipe se complementou em diversos momentos do processo criativo e de realização da aplicação, dando uma liberdade de produção maior do recurso.&#10;" wrapText="true">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </TextArea>
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                    <Group fx:id="objetivos" layoutX="1.0" layoutY="17.0" onMouseClicked="#funSobre" styleClass="abaSobre">
+                                       <children>
+                                          <SVGPath content="M133.01 10 34.49 10 15.5 22.63 15.5 38 153 38 153 22.63 134.01 10z" style="-fx-fill: white;" />
+                                          <Label layoutX="30.0" layoutY="8.0" styleClass="abaSobre" text="Objetivos">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Group>
+                                    <Group fx:id="tutorial" layoutX="139.0" layoutY="17.0" onMouseClicked="#funSobre" styleClass="abaSobre">
+                                       <children>
+                                          <SVGPath content="M133.01 10 34.49 10 15.5 22.63 15.5 38 153 38 153 22.63 134.01 10z" style="-fx-fill: white;" />
+                                          <Label layoutX="40.0" layoutY="8.0" styleClass="abaSobre" text="Tutorial">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Group>
+                                    <Group fx:id="creditos" layoutX="276.0" layoutY="17.0" onMouseClicked="#funSobre" styleClass="abaSobre">
+                                       <children>
+                                          <SVGPath content="M133.01 10 34.49 10 15.5 22.63 15.5 38 153 38 153 22.63 134.01 10z" style="-fx-fill: white;" />
+                                          <Label layoutX="39.0" layoutY="8.0" styleClass="abaSobre" text="Créditos">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Group>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Group layoutX="105.0" layoutY="18.0">
+                           <children>
+                              <SVGPath content="m 255.98817,36.680893 v -9.849148 0 L 169.48153,4.2198275 H 2.61152 L 2.836938,36.680893 Z" layoutX="-1.0" layoutY="3.0" styleClass="backTitle" />
+                              <Text fill="#170808" fontSmoothingType="LCD" layoutX="74.0" layoutY="39.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tituloPasta" text="Sobre" />
+                           </children>
+                        </Group>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

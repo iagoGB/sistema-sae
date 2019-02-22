@@ -1,0 +1,68 @@
+<html>
+    <head> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#botao").click(function(){
+                    $.ajax({
+                        url : 'envio.php',//url para acessar o arquivo
+                        type : 'post',//PROTOCOLO DE ENVIO PODE SER GET/POST
+                        data: 
+                        {
+                            nome : document.getElementById("nome").value,
+                            instituicao : document.getElementById("instituicao").value,
+                            email : document.getElementById("email").value,
+                            telefone : document.getElementById("telefone").value,
+                            endereco : document.getElementById("endereco").value,
+                            referencia : document.getElementById("referencia").value,
+                            bairro : document.getElementById("bairro").value,
+                            conteudo : document.getElementById("conteudo").value,
+                            conhece : document.getElementById("conhece").value,
+                            complementares : document.getElementById("complementares").value
+                        },//parametros para a funcao
+                        dataType : 'json',//TIPO DO RETORNO JSON/TEXTO 
+                        success : function(){//DATA É O VALOR RETORNADO
+                            alert("sucesso");//VALOR INDICE DO ARRAY/JSON
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <label for="contato">Contato</label></br>
+
+            <label for="nome">Nome:</label><br>
+            <input type="text" name="nome" id="nome" placeholder="Enter Name"><br>
+            <label for="nome">Instituição (Empresa, Instituição pública, ONG, ...):</label><br>
+            <input type="text" name="instituicao" id="instituicao" placeholder="Enter Name"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" name="email" id="email" placeholder="Enter Email"><br>
+            <label for="phone_number">Telefone:</label><br><input type="text" name="telefone" id="telefone" placeholder="Enter Phone Number"><br>
+
+            <label for="enderecocoleta">Endereço de coleta</label></br>
+
+            <label for="endereco">Endereço (Rua, n°, apto., ...):</label><br>
+            <input type="text" name="endereco" id="endereco" placeholder="Enter Name"><br>
+            <label for="referencia">Ponto de referência:</label><br>
+            <input type="text" name="referencia" id="referencia" placeholder="Enter Email"><br>
+            <label for="bairro">Bairro de Fortaleza:</label><br>
+            <input type="text" name="bairro" id="bairro" placeholder="Enter Phone Number"><br>
+
+            <label for="conteudodoacao">Conteúdo da doação</label></br>
+
+            <label for="conteudo">Quais são os objetos que você quer doar?:</label><br>
+            <input type="text" name="conteudo" id="conteudo" placeholder="Enter Name"><br>
+
+            <label for="relacionamento">Relacionamento com o Emaús com o Emaús</label></br>
+
+            <label for="conhece">Como você conheceu o movimento Emaús Amor e Justiça?:</label><br>
+            <input type="text" name="conhece" id="conhece" placeholder="Enter Name"><br>
+            <label for="complementares">Observações complementares</label><br>
+            <input type="text" name="complementares" id="complementares" placeholder="Enter Name"><br>
+            
+            <input type="submit" id="botao" name="Submit">
+        </form>
+    </body>
+</html>
